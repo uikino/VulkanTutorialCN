@@ -1397,16 +1397,16 @@ void setupDebugCallback() {
 接着，我们需要填写VkDebugUtilsMessengerCreateInfoEXT结构体所需的信息：
 
 \begin{lstlisting}[language={[ANSI]C},keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\small,numbers=left, numberstyle=\tiny,breaklines=true]
-VkDebugUtilsMessengerCreateInfoEXT createInfo = {};
-createInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
-createInfo.messageSeverity = VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT |
+VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo = {};
+debugCreateInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
+debugCreateInfo.messageSeverity = VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT |
 	VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT |
 	VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT;
-createInfo.messageType = VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT |
+debugCreateInfo.messageType = VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT |
 	VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT |
 	VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT;
-createInfo.pfnUserCallback = debugCallback;
-createInfo.pUserData = nullptr; // Optional
+debugCreateInfo.pfnUserCallback = debugCallback;
+debugCreateInfo.pUserData = nullptr; // Optional
 \end{lstlisting}
 
 messageSeverity域可以用来指定回调函数处理的消息级别。在这里，我们设置回调函数处理除了VK\_DEBUG\_UTILS\_MESSAGE\_SEVERITY\_INFO\_BIT\_EXT外的所有级别的消息，这使得我们的回调函数可以接收到可能的问题信息，同时忽略掉冗长的一般调试信息。
