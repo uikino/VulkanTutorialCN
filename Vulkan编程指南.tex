@@ -1108,7 +1108,7 @@ if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS) {
 
 \subsection{检测扩展支持}
 
-如果读者看过vkCreateInstance函数的官方文档，可能会知道它返回的之中一个错误代码VK\_ERROR\_EXTENSION\_NOT\_PRESENT。我们可以利用这个错误代码在扩展不能满足时直接结束我们的程序，这对于像窗口系统这种必要的扩展来说非常适合。但有时，我们请求的扩展可能是非必须的，有了很好，没有的话，程序仍然可以运行，这时，我们该怎么做呢？
+在官方文档中，vkCreateInstance函数的返回值可能为VK\_ERROR\_EXTENSION\_NOT\_PRESENT。我们可以利用这个错误代码在扩展不能满足时直接结束我们的程序，这对于像窗口系统这种必要的扩展来说非常适合。但有时，我们请求的扩展可能是非必须的，有了很好，没有的话，程序仍然可以运行，这时，我们该怎么做呢？
 
 实际上Vulkan提供了一个叫做vkEnumerateInstanceExtensionProperties可以在Vulkan实例创建之前返回支持的扩展列表。通过它，我们可以获取扩展的个数，以及扩展的详细信息，此外，它还允许我们指定校验层来对扩展进行过滤，但在这里，我们不使用它，将其设置为nullptr。
 
