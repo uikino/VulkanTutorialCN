@@ -1131,7 +1131,7 @@ std::vector<VkExtensionProperties> extensions(extensionCount);
 vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, extensions.data());
 \end{lstlisting}
 
-每个VkExtensionProperties结构体包含了扩展的名字和版本信息。我们可以使用下面的代码将这些信息打印在控制台窗口中(代码中的\\t表示制表符)：
+每个VkExtensionProperties结构体包含了扩展的名字和版本信息。我们可以使用下面的代码将这些信息打印在控制台窗口中：
 
 \begin{lstlisting}[language={[ANSI]C},keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\small,numbers=left, numberstyle=\tiny,breaklines=true]
 std::cout << "available extensions:" << std::endl;
